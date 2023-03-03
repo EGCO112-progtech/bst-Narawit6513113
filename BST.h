@@ -18,7 +18,7 @@ typedef struct {
 void insertNode( BST *, int );
 
 void insertNode_R(TreeNodePtr * t,int value){
-  if(t==NULL){
+  if(*t==NULL){
    *t = (TreeNodePtr)malloc(sizeof(struct TreeNode));
    if(*t){
 		(*t)->leftPtr=NULL;
@@ -91,5 +91,16 @@ void preOrder( TreeNodePtr treePtr )
       printf("%3d",treePtr->data) ;  //print the value  
       preOrder( treePtr->leftPtr ); //Recursion to the left
       preOrder( treePtr->rightPtr ); //Recursion to the right
+   } // end if                          
+}
+
+
+void postOrder( TreeNodePtr treePtr )
+{ 
+   // if tree is not empty, then traverse
+   if ( treePtr != NULL ) {          //print the value  
+      postOrder( treePtr->leftPtr ); //Recursion to the left
+      postOrder( treePtr->rightPtr );
+      printf("%3d",treePtr->data) ; //Recursion to the right
    } // end if                          
 } 
