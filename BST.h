@@ -104,3 +104,18 @@ void postOrder( TreeNodePtr treePtr )
       printf("%3d",treePtr->data) ; //Recursion to the right
    } // end if                          
 } 
+void printTree(TreeNodePtr treePtr ,int c )
+{
+   if ( treePtr != NULL )
+   {
+      printTree(treePtr->rightPtr,c+1);
+      for(int i=0; i<c; i++)
+      {
+         printf("     ");
+      }
+      printf("%d",treePtr->data);
+         printf("\n");
+      printTree(treePtr->leftPtr,c+1);
+      
+   }
+}
